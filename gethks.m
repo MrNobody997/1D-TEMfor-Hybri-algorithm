@@ -1,4 +1,5 @@
 %Obtain the independent variables of time-frequency conversion and Hanker transformation
+%Author: You Xiran    Time: October 2023
 function [sg,hnk,sw,sc,se,st,sr]=gethks(gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,t,r)
 sw=zeros(length(t),length(sinflt));  %trace¡Á160
 sc=zeros(length(t),length(cosflt));  %trace¡Á250

@@ -1,4 +1,5 @@
 %Load filtering coefficients
+%Author: You Xiran    Time: October 2023
 function [gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,miu]=loadsinhank(M)
   sinflt=load('sinf.txt'); % 160 points sine
 %   sinflt=load('sin_xs_123.txt'); % 123 points sine

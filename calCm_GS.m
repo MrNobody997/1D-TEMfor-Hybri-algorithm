@@ -1,5 +1,7 @@
+%Calculate the coefficients of the G-S algorithm
+%Author: You Xiran    Time: October 2023
 function [Cmg]=calCm_GS(M)
-Cmg=zeros(1,M);  %ÏµÊý¾ØÕó¸³´æ´¢¿Õ¼ä
+Cmg=zeros(1,M);  
 for m=1:M
     Csum=0.0;
     for k=floor((m+1.0)/2.0):min(m,M/2.0)

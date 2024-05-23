@@ -1,4 +1,5 @@
-%Calculate the response of a single dipole:
+%Calculate the response of a single dipole
+%Author: You Xiran    Time: October 2023
 function [fd,resip]=forword3(gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,times,Mxyz,x,miu,p,h,am,tao,c,I0,nturns,srx,sinv,sign1)
 rx=Mxyz(1);
 ry=Mxyz(2);

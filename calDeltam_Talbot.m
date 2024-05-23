@@ -1,3 +1,5 @@
+%Calculate the coefficients of the Talbot algorithm
+%Author: You Xiran    Time: October 2023
 function [cTm]=calDeltam_Talbot(M)
     Deltam=zeros(1,M-1);
     cTm=zeros(1,M-1);

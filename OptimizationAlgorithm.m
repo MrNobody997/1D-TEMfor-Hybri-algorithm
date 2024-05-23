@@ -1,5 +1,5 @@
-%1D Forward modeling of ground sources TEM based on adaptive hybrid algorithm
-%Author: Yxr    Time: October 2023
+%1D Forward modeling of grounded electrical sources TEM based on adaptive hybrid algorithm
+%Author: You Xiran    Time: October 2023
 clc
 clear all
 format short e
@@ -7,7 +7,7 @@ format short e
 hankfit=load('hkf.txt'); % 140 points J1 Hankel filtering coefficient
 a0=-7.91001919000d+00; % Initial value of Hankel
 deltx=8.79671439570d-02; % Hanke sampling interval
-miu=pi*4d-7; % μ0=π*4*10^-7
+miu=pi*4d-7; 
 gsflt=calCm_GS(14); % load 14 points G-S coefficients
 cTm=calDeltam_Talbot(20); % load 20 points Talbot coefficients
 %%
@@ -81,7 +81,7 @@ end
 Err=abs(dBz_jx-V)./dBz_jx;
 figure(2)
 loglog(times,Err);
-ylabel('相对误差百分比');xlabel('Time');
+ylabel('Relative error/%');xlabel('Time');
 hold on
 legend
 %MSE

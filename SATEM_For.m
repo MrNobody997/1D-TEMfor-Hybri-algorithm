@@ -1,5 +1,5 @@
-%1D Ground sources TEM forward modeling
-%Author: Yxr    Time: October 2023
+%1D grounded electrical source TEM forward modeling
+%Author: You Xiran    Time: October 2023
 clc
 clear all
 format short e
@@ -18,16 +18,16 @@ times=logspace(Ta,Tb,trace);
 %%
 %Setting model parameters:
 sinv=1; %Time-frequency conversion sign:0,G-S;1,sine;2,cosine;3,Euler;4,Talbot;5,Guptasarma.
-sign1=2; % Output sign = 1.dHz|2.dBz|3.Vbz
+sign1=2; % Output sign = 1.dHz;2.dBz;3.Vbz
 p=[100 500 100]; % Resistivity
 h=[100 10]; % Layer thickness
-%Induced polarization parameters():
+%Induced polarization parameters:
 IP=0; % The sign of enabling IP effect, 1, Yes; 0, No.
 am=[ 0.0 0.8 0.0 0]; % Polarizability
 tao=[0.1 0.1 0.1 0]; % Time constant
 c=[0.25 0.25 0.25 0]; % Frequency-dependant coefficient
 %%
-for M=12:1:34  %Different coefficients
+for M=12:1:34  %M is the number of coefficients
 [gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,miu]=loadsinhank(M);
 %1D Forward modeling:
 if IP==0
@@ -35,7 +35,7 @@ if IP==0
     tao=am; c=am;
 end
 f=@(x)forword3(gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,times,Mxyz,x,miu,p,h,am,tao,c,I0,nturns,srx,sinv,sign1);
-[V]=IntGauss_Legendre(f,Lx(1),Lx(2)); %¶Ôdl»ý·Ö
+[V]=IntGauss_Legendre(f,Lx(1),Lx(2)); %Gauss-Legendre quadrature formula
 V=abs(V);
 toc
 
@@ -52,9 +52,9 @@ for n=1:trace
     Hzt_jx=Return_sum_jx_field_t(Lx(1),Lx(2),I0,p,t,miu,Mxyz(1),Mxyz(2));
     dBz_jx(n)=abs(Hzt_jx)*miu;
 end
-% figure(1)
-% loglog(times,dBz_jx,'k:','LineWidth',2.0);
-% ylabel('dBz/dt');xlabel('Time');
-% hold on
-% legend
+figure(1)
+loglog(times,dBz_jx,'k:','LineWidth',2.0);
+ylabel('dBz/dt');xlabel('Time');
+hold on
+legend
 end

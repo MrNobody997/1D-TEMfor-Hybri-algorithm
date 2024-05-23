@@ -1,3 +1,5 @@
+%Calculate the coefficients of the Euler algorithm
+%Author: You Xiran    Time: October 2023
 function [cEm]=calBm_Euler(M)
     fm=zeros(1,2*M);
     cEm=zeros(1,2*M);

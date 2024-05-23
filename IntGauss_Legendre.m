@@ -1,3 +1,5 @@
+%Gauss-Legendre method for integral calculation
+%Author: You Xiran    Time: October 2023
 function[I]=IntGauss_Legendre(f,a,b)
 %Gauss Legendre integration(n=5):
 t_start=(b-a)/2.;

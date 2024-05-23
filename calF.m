@@ -1,4 +1,5 @@
 %Calculate the field value in frequency domain
+%Author: You Xiran    Time: October 2023
 function [fd]=calF(t,h0,r,dl,sintheta,I0,nturns,srx,sinflt,hankfit,hnk,U1,miu,sinv,sign1)
 nt=length(t);
 fd=zeros(1,nt);  

@@ -1,4 +1,5 @@
 %Calculate kernel function
+%Author: You Xiran    Time: October 2023
 function [U1,u]=calrte(t,hnk,sw,miu,p,h,am,tao,c)
 nl=length(p);
 thickness=h;
