@@ -1,12 +1,12 @@
 %Obtain the independent variables of time-frequency conversion and Hanker transformation
 %Author: You Xiran    Time: October 2023
 function [sg,hnk,sw,sc,se,st,sr]=gethks(gsflt,sinflt,cosflt,cEm,cTm,deltsin,deltcos,hankfit,a0,Gup,deltx,t,r)
-sw=zeros(length(t),length(sinflt));  %trace¡Á160
-sc=zeros(length(t),length(cosflt));  %trace¡Á250
-sg=zeros(length(t),length(gsflt));   %trace¡Á10
-se=zeros(length(t),length(cEm));  %trace¡Á2M+1
-st=zeros(length(t),length(cTm));  %trace¡ÁM
-sr=zeros(length(t),21);  %trace¡Á21
+sw=zeros(length(t),length(sinflt));  
+sc=zeros(length(t),length(cosflt));  
+sg=zeros(length(t),length(gsflt));   
+se=zeros(length(t),length(cEm)); 
+st=zeros(length(t),length(cTm)); 
+sr=zeros(length(t),21);  
 %Euler
 Me=(length(cEm)-1)/2;
 %Talbot
@@ -21,13 +21,13 @@ Deltam=[Delta0,Deltam];
 for ii=1:length(t)
     %sine independent variable
     for jj=1:length(sinflt)
-        sw(ii,jj)=exp((jj-60.d0)*deltsin)/t(ii); % 1/t*e^(n*deltsin),160
-        %             sw(ii,jj)=exp((jj-57.d0)*deltsin)/t(ii); % 1/t*e^(n*deltsin),123
-        %             sw(ii,jj)=exp((jj-150.d0)*deltsin)/t(ii); % 1/t*e^(n*deltsin),250
+        sw(ii,jj)=exp((jj-60.d0)*deltsin)/t(ii); % sine 160
+        %             sw(ii,jj)=exp((jj-57.d0)*deltsin)/t(ii); % sine 123
+        %             sw(ii,jj)=exp((jj-150.d0)*deltsin)/t(ii); % sine 250
     end
     %cosine independent variable
     for jj=1:length(cosflt)
-        sc(ii,jj)=exp((jj-150.d0)*deltcos)/t(ii); % 1/t*e^(n*deltsin),250
+        sc(ii,jj)=exp((jj-150.d0)*deltcos)/t(ii); % cosine 250
     end
     %G-S independent variable
     for jj=1:length(gsflt)
@@ -48,5 +48,5 @@ for ii=1:length(t)
         sr(ii,jj)=10^(Gup(jj,1)-log10(t(ii)));
     end
 end
-hnk=10.^(a0+((1:length(hankfit))-1.d0)*deltx)/r; % 1/r*10^(a0+(i-1)*s)
+hnk=10.^(a0+((1:length(hankfit))-1.d0)*deltx)/r; 
 end
