@@ -17,7 +17,7 @@ trace=100; % Time traces
 times=logspace(Ta,Tb,trace);
 %%
 %Setting model parameters:
-sinv=1; %Time-frequency conversion sign:0,G-S;1,sine;2,cosine;3,Euler;4,Talbot;5,Guptasarma.
+sinv=1; %Time-frequency conversion sign:0,G-S;1,sine;2,Euler;3,Talbot;4,cosine;5,Guptasarma.
 sign1=2; % Output sign = 1.dHz;2.dBz;3.Vbz
 p=[100 500 100]; % Resistivity
 h=[100 10]; % Layer thickness
